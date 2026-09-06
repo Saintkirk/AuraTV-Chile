@@ -3,6 +3,7 @@ package com.auratv.chile
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var channelGrid: RecyclerView
     private lateinit var progress: ProgressBar
     private lateinit var statusText: TextView
+    private lateinit var btnEpg: Button
 
     private val client = OkHttpClient.Builder()
         .connectTimeout(20, TimeUnit.SECONDS)
@@ -42,8 +44,13 @@ class MainActivity : AppCompatActivity() {
         channelGrid = findViewById(R.id.channelGrid)
         progress = findViewById(R.id.progress)
         statusText = findViewById(R.id.statusText)
+        btnEpg = findViewById(R.id.btnEpg)
 
         channelGrid.layoutManager = GridLayoutManager(this, 4)
+
+        btnEpg.setOnClickListener {
+            startActivity(Intent(this, EpgActivity::class.java))
+        }
 
         loadChilePlaylist()
     }
@@ -81,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             val response = client.newCall(request).execute()
             if (!response.isSuccessful) return emptyList()
             val body = response.body?.string() ?: return emptyList()
-            parseM3u(body).take(500) // límite práctico UI
+            parseM3u(body).take(500)
         } catch (e: Exception) {
             emptyList()
         }

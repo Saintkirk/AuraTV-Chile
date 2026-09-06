@@ -37,5 +37,11 @@
             android:exported="false"
             android:screenOrientation="landscape"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden" />
+
+        <activity
+            android:name=".EpgActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboard|keyboardHidden|navigation" />
     </application>
 </manifest>

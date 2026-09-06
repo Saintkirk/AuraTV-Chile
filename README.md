@@ -1,37 +1,36 @@
 # AuraTV Chile
 
-App **Android TV / Google TV** para ver canales free-to-air de Chile.
+App **Android TV / Google TV** para canales free-to-air de Chile.
 
 ## Características
 
-- Lista base: [iptv-org Chile](https://iptv-org.github.io/iptv/countries/cl.m3u)
-- EPG: [epg.lat Chile](https://epg.lat/files/cl.xml.gz) (zona America/Santiago)
-- Reproductor: **Media3 ExoPlayer** (HLS, ABR, 4K cuando el hardware lo permita)
-- Interfaz optimizada para mando a distancia
-- Actualización automática de EPG (WorkManager)
+- Lista: [iptv-org Chile](https://iptv-org.github.io/iptv/countries/cl.m3u)
+- **EPG interactivo** (XMLTV Chile)
+  - Fuentes: `epg.lat/files/cl.xml.gz` → fallback `iptv-epg.org`
+  - Zona horaria: `America/Santiago`
+  - Matching por `tvg-id` / nombre
+  - Pantalla Guía TV navegable con mando (↑↓ + OK para reproducir)
+- Reproductor: **Media3 ExoPlayer** (HLS, ABR, reintentos)
+
+## Uso en TV
+
+1. Abre la app → grid de canales
+2. Botón **Guía TV** → guía con programa actual y siguiente
+3. OK en una fila → reproduce ese canal
 
 ## Generar APK
 
-### Automático (GitHub Actions)
-1. Ve a la pestaña **Actions**
-2. Ejecuta el workflow **Build APK**
-3. Descarga el artefacto `app-debug.apk`
+### GitHub Actions
+1. [Actions](https://github.com/Saintkirk/AuraTV-Chile/actions) → **Build APK** → Run workflow
+2. Descarga el artefacto `AuraTV-Chile-debug`
 
 ### Local
 ```bash
 ./gradlew assembleDebug
-# APK en: app/build/outputs/apk/debug/app-debug.apk
 ```
-
-## Instalar en Android TV
-
-1. Activa **Orígenes desconocidos** / depuración USB
-2. Usa `adb install app-debug.apk` o un gestor de archivos
 
 ## Legal
 
-Solo canales públicamente disponibles (free-to-air). No incluye contenido con copyright no autorizado.
-
-## Licencia
+Solo streams públicamente listados como free-to-air. Sin contenido no autorizado.
 
 MIT

@@ -6,4 +6,6 @@
     <string name="loading">Cargando canales…</string>
     <string name="error_network">Error de red. Reintentando…</string>
     <string name="playlist_url">https://iptv-org.github.io/iptv/countries/cl.m3u</string>
+    <string name="epg_title">Guía de programación</string>
+    <string name="epg_loading">Cargando guía de Chile…</string>
 </resources>
