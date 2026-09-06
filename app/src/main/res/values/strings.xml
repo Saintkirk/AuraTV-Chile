@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AuraTV Chile</string>
+    <string name="channels_title">Canales en vivo</string>
+    <string name="now_playing">Ahora en reproducción</string>
+    <string name="loading">Cargando canales…</string>
+    <string name="error_network">Error de red. Reintentando…</string>
+    <string name="playlist_url">https://iptv-org.github.io/iptv/countries/cl.m3u</string>
+</resources>
